@@ -132,7 +132,6 @@ public class Filters
             for(int j = 0; j < flippedImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = flippedImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(i, image.getHeight()-j-1);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
         }
@@ -160,7 +159,6 @@ public class Filters
             for(int j = 0; j < rotatedImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = rotatedImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(j, rotatedImage.getWidth()-i-1);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue()); 
             }
         }
@@ -202,7 +200,6 @@ public class Filters
             for(int j = 0; j < blurredImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = blurredImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(i, j);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
         }
