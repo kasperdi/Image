@@ -99,9 +99,9 @@ public class Filters
     public Image mirror() {
         Image mirroredImage = new Image("picture.png");
 
-        for(int i = 0; i < image.getWidth(); i++) { //x-koordinater
+        for(int i = 0; i < mirroredImage.getWidth(); i++) { //x-koordinater
 
-            for(int j = 0; j < image.getHeight(); j++) { //y-koordinater
+            for(int j = 0; j < mirroredImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = mirroredImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(image.getWidth()-i-1, j);
                 pixel.getValue();
@@ -125,19 +125,19 @@ public class Filters
      * @return   Flipped image.
      */
     public Image flip() {
-        Image mirroredImage = new Image("picture.png");
+        Image flippedImage = new Image("picture.png");
 
-        for(int i = 0; i < image.getWidth(); i++) { //x-koordinater
+        for(int i = 0; i < flippedImage.getWidth(); i++) { //x-koordinater
 
-            for(int j = 0; j < image.getHeight(); j++) { //y-koordinater
-                Pixel pixel = mirroredImage.getPixel(i, j);
+            for(int j = 0; j < flippedImage.getHeight(); j++) { //y-koordinater
+                Pixel pixel = flippedImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(i, image.getHeight()-j-1);
                 pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
         }
 
-        image = mirroredImage;
+        image = flippedImage;
 
         image.setTitle("flip-" + image.getTitle());
         image.updateCanvas();
@@ -153,21 +153,21 @@ public class Filters
      * @return   Rotated image.
      */
     public Image rotate() {
-        Image mirroredImage = new Image(image.getHeight(), image.getWidth(), "picture.png");
+        Image rotatedImage = new Image(image.getHeight(), image.getWidth(), "picture.png");
 
-        for(int i = 0; i < image.getWidth(); i++) { //x-koordinater
+        for(int i = 0; i < rotatedImage.getWidth(); i++) { //x-koordinater
 
-            for(int j = 0; j < image.getHeight(); j++) { //y-koordinater
-                Pixel pixel = mirroredImage.getPixel(i, j);
-                Pixel newPixel = image.getPixel(j, mirroredImage.getWidth()-i-1);
+            for(int j = 0; j < rotatedImage.getHeight(); j++) { //y-koordinater
+                Pixel pixel = rotatedImage.getPixel(i, j);
+                Pixel newPixel = image.getPixel(j, rotatedImage.getWidth()-i-1);
                 pixel.getValue();
-                pixel.setValue(newPixel.getValue());
+                pixel.setValue(newPixel.getValue()); 
             }
         }
 
-        image = mirroredImage;
+        image = rotatedImage;
 
-        image.setTitle("mirror-" + image.getTitle());
+        image.setTitle("rotate-" + image.getTitle());
         image.updateCanvas();
         return image;
     }
