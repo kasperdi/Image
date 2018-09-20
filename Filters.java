@@ -19,7 +19,8 @@ public class Filters
      * 
      * @param image   Image to apply filters to.
      */
-    public Filters(Image image) {
+    public Filters(Image image) 
+    {
         this.image = image;
     }
 
@@ -28,7 +29,8 @@ public class Filters
      * 
      * @param image   Image to apply filters to.
      */
-    public Filters() {
+    public Filters() 
+    {
         this.image = new Image("picture.png");
     }
 
@@ -41,7 +43,8 @@ public class Filters
      * @param amount   Increase in value for each pixel.
      * @return   Brightened image.
      */
-    public Image brighten(int amount) {
+    public Image brighten(int amount) 
+    {
         for (Pixel pixels : image.getPixels()) {
             pixels.setValue(pixels.getValue() + amount);
         }
@@ -60,7 +63,8 @@ public class Filters
      * @param amount   Decrease in value for each pixel.
      * @return   Darkened image.
      */
-    public Image darken(int amount) {
+    public Image darken(int amount) 
+    {
         for (Pixel pixels : image.getPixels()) {
             pixels.setValue(pixels.getValue() - amount);
         }
@@ -77,7 +81,8 @@ public class Filters
      *
      * @return   Inverted image.
      */
-    public Image invert() {
+    public Image invert() 
+    {
         ArrayList<Pixel> pixelList = image.getPixels();
         for(Pixel pixels: pixelList) {
             pixels.setValue(255 - pixels.getValue());
@@ -96,7 +101,8 @@ public class Filters
      *
      * @return   Mirrored image.
      */
-    public Image mirror() {
+    public Image mirror() 
+    {
         Image mirroredImage = new Image("picture.png");
 
         for(int i = 0; i < mirroredImage.getWidth(); i++) { //x-koordinater
@@ -123,7 +129,8 @@ public class Filters
      *
      * @return   Flipped image.
      */
-    public Image flip() {
+    public Image flip() 
+    {
         Image flippedImage = new Image("picture.png");
 
         for(int i = 0; i < flippedImage.getWidth(); i++) { //x-koordinater
@@ -151,7 +158,8 @@ public class Filters
      *
      * @return   Rotated image.
      */
-    public Image rotate() {
+    public Image rotate() 
+    {
         Image rotatedImage = new Image(image.getHeight(), image.getWidth(), "picture.png");
 
         for(int i = 0; i < rotatedImage.getWidth(); i++) { //x-koordinater
@@ -159,7 +167,6 @@ public class Filters
             for(int j = 0; j < rotatedImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = rotatedImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(j, rotatedImage.getWidth()-i-1);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue()); 
             }
         }
@@ -170,7 +177,7 @@ public class Filters
         image.updateCanvas();
         return image;
     }
-
+    
     /**
      * Auxillary method for blur.
      * This method computes the average value of the (up to nine) neighbouring pixels
@@ -180,7 +187,8 @@ public class Filters
      * @param j   Vertical index.
      * @return    Average pixel value.
      */
-    private int average(int i, int j) {
+    private int average(int i, int j) 
+    {
         int average = 0;
         image.getNeighbours(i, j);
         return 0;
@@ -193,7 +201,8 @@ public class Filters
      *
      * @return   Blurred image.
      */
-    public Image blur() {
+    public Image blur() 
+    {
         Image blurredImage = new Image("picture.png");
 
         for(int i = 0; i < blurredImage.getWidth(); i++) { //x-koordinater
@@ -201,7 +210,6 @@ public class Filters
             for(int j = 0; j < blurredImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = blurredImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(i, j);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
         }
@@ -212,7 +220,7 @@ public class Filters
         image.updateCanvas();
         return image;
     }
-
+    
     /**
      * This method adds noise to an image.
      * The value of pixel (i,j) is set to a random value in the interval
@@ -222,7 +230,8 @@ public class Filters
      * @param amount   Maximal amount of noise to add.
      * @return  Noisy image. 
      */
-    public Image noise(int amount) {
+    public Image noise(int amount) 
+    {
         return null;
     }
 
@@ -238,7 +247,8 @@ public class Filters
      * @param factor   Resize factor.
      * @return   Resized image.
      */
-    public Image resize(double factor) {
+    public Image resize(double factor) 
+    {
         return null;
     }
 
@@ -250,7 +260,8 @@ public class Filters
      *
      * @return   Rotated image.
      */
-    public Image rotateAC() {
+    public Image rotateAC() 
+    {
         return null;
     }
 
@@ -259,7 +270,8 @@ public class Filters
      * 
      * @param amount    The amount by which to increase contrast
      */
-    public Image increaseContrast(double amount) {
+    public Image increaseContrast(double amount) 
+    {
         return null;
     }
 
