@@ -160,7 +160,7 @@ public class Filters
 
             for(int j = 0; j < image.getHeight(); j++) { //y-koordinater
                 Pixel pixel = mirroredImage.getPixel(i, j);
-                Pixel newPixel = image.getPixel(j, image.getWidth()-i-1);
+                Pixel newPixel = image.getPixel(j, mirroredImage.getWidth()-i-1);
                 pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
