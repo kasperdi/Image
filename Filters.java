@@ -181,6 +181,8 @@ public class Filters
      * @return    Average pixel value.
      */
     private int average(int i, int j) {
+        int average = 0;
+        image.getNeighbours(i, j);
         return 0;
     }
 
@@ -192,7 +194,23 @@ public class Filters
      * @return   Blurred image.
      */
     public Image blur() {
-        return null;
+        Image blurredImage = new Image("picture.png");
+
+        for(int i = 0; i < blurredImage.getWidth(); i++) { //x-koordinater
+
+            for(int j = 0; j < blurredImage.getHeight(); j++) { //y-koordinater
+                Pixel pixel = blurredImage.getPixel(i, j);
+                Pixel newPixel = image.getPixel(i, j);
+                pixel.getValue();
+                pixel.setValue(newPixel.getValue());
+            }
+        }
+
+        image = blurredImage;
+
+        image.setTitle("mirror-" + image.getTitle());
+        image.updateCanvas();
+        return image;
     }
 
     /**
