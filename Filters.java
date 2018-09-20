@@ -30,7 +30,6 @@ public class Filters
      */
     public Filters() {
         this.image = new Image("picture.png");
-
     }
 
     /**
