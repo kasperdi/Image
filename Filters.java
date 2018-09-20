@@ -118,7 +118,7 @@ public class Filters
     /**
      * This method flips an image across the horizontal axis.
      * The value of pixel (i,j) in the new image is set to the value of pixel
-     * ?????????? in the old image, where height is the height of the image.
+     * (i, image.getHeight()-j-1) in the old image, where height is the height of the image.
      * The title of the new image is prefixed 'flip-'.
      *
      * @return   Flipped image.
