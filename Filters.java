@@ -104,7 +104,6 @@ public class Filters
             for(int j = 0; j < mirroredImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = mirroredImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(image.getWidth()-i-1, j);
-                pixel.getValue();
                 pixel.setValue(newPixel.getValue());
             }
         }
