@@ -176,7 +176,7 @@ public class Filters
         image.updateCanvas();
         return image;
     }
-    
+
     /**
      * Auxillary method for blur.
      * This method computes the average value of the (up to nine) neighbouring pixels
@@ -191,13 +191,13 @@ public class Filters
         int average = 0;
         int amount = 0;
         int sum = 0;
-        
+
         for(Pixel pixels : image.getNeighbours(i, j)) {
             amount++;
             sum += pixels.getValue();
         }
         average = sum / amount;
-        
+
         return average;
     }
 
@@ -228,7 +228,7 @@ public class Filters
         image.updateCanvas();
         return image;
     }
-    
+
     /**
      * This method adds noise to an image.
      * The value of pixel (i,j) is set to a random value in the interval
