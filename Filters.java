@@ -180,8 +180,17 @@ public class Filters
      */
     private int average(int i, int j) {
         int average = 0;
+        int amount = 0;
+        int sum = 0;
         image.getNeighbours(i, j);
-        return 0;
+        
+        
+        for(Pixel pixels : image.getNeighbours(i, j)) {
+            sum += pixels.getValue();
+        }
+        average = sum / amount;
+        
+        return average;
     }
 
     /**
