@@ -16,10 +16,12 @@ af et image, og derefter kan vi overskrive i den gemte del.
 
 Alternativt kunne man lave en swap metode, som tog to pixler som input, og byttede dem rundt:
 
-public  void swap(Pixel pixel1, Pixel pixel2) 
+public void swap(Pixel pixel1, Pixel pixel2) 
     {
         Pixel temp = pixel1;
         pixel1 = pixel2;
         pixel2 = temp;
     }
 
+Dette er dog identitisk med at kopiere halvdelen af billedet, da "temp" koiperer halvdelen af
+alle pixels.
