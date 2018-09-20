@@ -186,15 +186,14 @@ public class Filters
      * @param j   Vertical index.
      * @return    Average pixel value.
      */
-    private int average(int i, int j) 
+    public int average(int i, int j) 
     {
         int average = 0;
         int amount = 0;
         int sum = 0;
-        image.getNeighbours(i, j);
-        
         
         for(Pixel pixels : image.getNeighbours(i, j)) {
+            amount++;
             sum += pixels.getValue();
         }
         average = sum / amount;
@@ -218,13 +217,14 @@ public class Filters
             for(int j = 0; j < blurredImage.getHeight(); j++) { //y-koordinater
                 Pixel pixel = blurredImage.getPixel(i, j);
                 Pixel newPixel = image.getPixel(i, j);
+                newPixel.setValue(average(i, j));
                 pixel.setValue(newPixel.getValue());
             }
         }
 
         image = blurredImage;
 
-        image.setTitle("mirror-" + image.getTitle());
+        image.setTitle("blur-" + image.getTitle());
         image.updateCanvas();
         return image;
     }
