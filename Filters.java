@@ -215,10 +215,9 @@ public class Filters
         for(int i = 0; i < blurredImage.getWidth(); i++) { //x-koordinater
 
             for(int j = 0; j < blurredImage.getHeight(); j++) { //y-koordinater
-                Pixel pixel = blurredImage.getPixel(i, j);
-                Pixel newPixel = image.getPixel(i, j);
+                Pixel pixel = image.getPixel(i, j);
+                Pixel newPixel = blurredImage.getPixel(i, j);
                 newPixel.setValue(average(i, j));
-                pixel.setValue(newPixel.getValue());
             }
         }
 
